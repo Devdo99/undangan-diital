@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
+
+@theme {
+  --color-navy: #0a1628;
+  --color-navy-mid: #111f3a;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8d5a0;
+  --color-cream: #f9f5ee;
+  
+  --font-playfair: "Playfair Display", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-lato: "Lato", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-cream font-lato;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Menggunakan logika exact dari HTML lama Anda */
+.main-scroller {
+  position: fixed;
+  inset: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.main-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
