@@ -1,43 +1,43 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
-
-@theme {
-  --color-navy: #0a1628;
-  --color-gold: #c9a84c;
-  --color-gold-light: #e8d5a0;
-  --color-cream: #f9f5ee;
-  
-  --font-playfair: "Playfair Display", serif;
-  --font-cormorant: "Cormorant Garamond", serif;
-  --font-lato: "Lato", sans-serif;
+/* Tambahkan animasi di luar layer base agar tidak bentrok */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
 }
 
-@layer base {
-  html, body {
-    @apply bg-navy text-cream overflow-x-hidden;
-    height: -webkit-fill-available; /* Perbaikan untuk browser mobile */
-  }
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -25px) rotate(-5deg); }
 }
 
-/* Sembunyikan Scrollbar tapi tetap bisa scroll */
-::-webkit-scrollbar {
-  display: none;
+@keyframes width-grow {
+  0% { width: 0; opacity: 0; }
+  100% { width: 80px; opacity: 1; }
 }
 
-.animate-fade-in {
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@layer base {
-  html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Mencegah scroll double */
+
+/* Daftarkan class animasi Anda di sini */
+@layer utilities {
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-width {
+    animation: width-grow 2s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1.5s ease-out forwards;
   }
 }
