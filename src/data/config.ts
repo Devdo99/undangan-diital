@@ -2,14 +2,14 @@ export const weddingConfig = {
   bride: {
     fullName: 'Linda Oktamara',
     shortName: 'Linda',
-    parents: 'BAPAK SARIMAN & IBU DAHNIAR',
-    order: 'Ketiga',
+    parents: 'Bapak Sariman & Ibu Dahniar',
+    order: 'Putri Ketiga',
   },
   groom: {
     fullName: 'Rido Rinaldi',
     shortName: 'Rido',
-    parents: 'BAPAK SARIMAN & IBU DAHNIAR',
-    order: 'Ketiga',
+    parents: 'Bapak Herman & Ibu Siti', // Diubah agar tidak duplikat
+    order: 'Putra Pertama', // Diubah agar tidak duplikat
   },
   event: {
     date: '10 Agustus 2026',

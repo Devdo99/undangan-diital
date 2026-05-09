@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'navy': '#0a1628',
+        'navy-mid': '#111f3a',
         'gold': '#c9a84c',
         'gold-light': '#e8d5a0',
         'cream': '#f9f5ee',

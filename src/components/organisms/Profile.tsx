@@ -10,45 +10,44 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({ name, parents, order, photo, isBride }) => {
   return (
-    <section className="relative w-full h-[100dvh] snap-start overflow-hidden bg-navy-dark">
+    <div className="relative w-full h-[100dvh] overflow-hidden flex flex-col justify-end">
       
-      {/* 1. BACKGROUND FOTO (Benar-benar Full Screen 100%) */}
-      <img 
-        src={photo} 
-        alt={name} 
-        // object-top memastikan dahi/wajah dari atas tidak terpotong
-        className="absolute inset-0 w-full h-full object-cover object-top" 
-      />
-      
-      {/* 2. GRADIENT MASK (Hanya muncul di 60% area bawah) 
-          Ini memastikan 40% area atas (wajah) BENAR-BENAR BENING TANPA GRADASI, 
-          dan teks di bawah tetap terbaca jelas */}
-      <div className="absolute bottom-0 inset-x-0 h-[60%] bg-gradient-to-t from-navy-dark via-navy-dark/90 to-transparent"></div>
-
-      {/* 3. TEKS (Dikunci mutlak di bagian bawah) */}
-      <div className="absolute bottom-0 inset-x-0 flex flex-col items-center text-center px-8 pb-16 z-10">
-        
-        <p className="font-cormorant italic text-gold-light tracking-[4px] text-[10px] uppercase mb-2 drop-shadow-md">
-          Mempelai {isBride ? 'Wanita' : 'Pria'}
-        </p>
-        
-        <h2 className="font-playfair text-4xl md:text-5xl text-gold-light mb-4 drop-shadow-lg">
-          {name}
-        </h2>
-        
-        <div className="h-[0.5px] w-16 bg-gold/50 mx-auto mb-5"></div>
-        
-        <p className="font-cormorant italic text-cream/80 text-sm md:text-base mb-1">
-          Putra {order} dari Pasangan:
-        </p>
-        
-        <p className="font-playfair text-gold-light font-bold text-lg md:text-xl uppercase tracking-widest drop-shadow-md">
-          {parents}
-        </p>
-        
+      {/* FOTO: Lapisan Paling Bawah (Benar-benar Full) */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={photo} 
+          alt={name} 
+          /* h-full w-full + object-cover memastikan foto mentok ke semua sisi layar */
+          className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000" 
+        />
+        {/* Lapisan Hitam Transparan agar Teks Terbaca Jelas */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent z-10" />
       </div>
 
-    </section>
+      {/* TEKS: Lapisan Di Atas Foto (Floating) */}
+      <div className="relative z-20 w-full px-6 pb-20 text-center animate-fade-in">
+        <div className="max-w-md mx-auto">
+          <p className="font-cormorant text-gold italic text-xl mb-2 drop-shadow-lg">
+            {isBride ? 'The Bride' : 'The Groom'}
+          </p>
+          
+          <h2 className="font-playfair text-5xl md:text-7xl text-gold-light mb-4 drop-shadow-2xl leading-none">
+            {name}
+          </h2>
+          
+          <div className="space-y-1 font-lato text-cream drop-shadow-md">
+            <p className="uppercase tracking-[4px] text-[10px] opacity-70">Putra/Putri Dari:</p>
+            <p className="font-bold text-xl md:text-2xl">{parents}</p>
+            <p className="italic text-sm opacity-80">{order}</p>
+          </div>
+          
+          <button className="mt-8 px-12 py-3 border border-gold/60 text-gold text-xs tracking-[5px] uppercase hover:bg-gold hover:text-navy transition-all backdrop-blur-sm bg-navy/20">
+            Instagram
+          </button>
+        </div>
+      </div>
+
+    </div>
   );
 };
 

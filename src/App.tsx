@@ -9,43 +9,47 @@ const App: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <div className="relative bg-navy text-cream font-lato h-screen w-screen overflow-hidden">
+    <div className="bg-navy text-cream w-full h-[100dvh] overflow-hidden relative">
       {!isOpened ? (
-        <div className="fixed inset-0 z-[100] bg-navy flex flex-col items-center justify-center p-10 text-center animate-fade-in">
-          <div className="mb-10">
-            <p className="font-cormorant italic text-gold/50 tracking-[4px] uppercase text-xs mb-2">The Wedding of</p>
-            <h1 className="font-playfair text-3xl text-gold-light tracking-widest leading-tight">
-              {weddingConfig.bride.shortName} & {weddingConfig.groom.shortName}
-            </h1>
-          </div>
-
+        <div className="fixed inset-0 z-[100] bg-navy flex flex-col items-center justify-center p-10 text-center">
+          <h1 className="font-playfair text-3xl text-gold-light mb-10 tracking-widest leading-tight">
+            {weddingConfig.bride.shortName} & {weddingConfig.groom.shortName}
+          </h1>
           <button 
             onClick={() => setIsOpened(true)}
-            className="group relative px-10 py-4 border border-gold text-gold font-lato tracking-[3px] uppercase text-xs transition-all duration-500 hover:bg-gold hover:text-navy"
+            className="px-10 py-4 border border-gold text-gold uppercase tracking-[3px] text-xs"
           >
             Buka Undangan
           </button>
         </div>
       ) : (
-        <main className="main-scroller animate-fade-in">
-          <Hero 
-            brideName={weddingConfig.bride.shortName} 
-            groomName={weddingConfig.groom.shortName} 
-            date={weddingConfig.event.date} 
-          />
-          <Profile 
-            name={weddingConfig.bride.fullName} 
-            parents={weddingConfig.bride.parents} 
-            order={weddingConfig.bride.order} 
-            photo={brideImg} 
-            isBride 
-          />
-          <Profile 
-            name={weddingConfig.groom.fullName} 
-            parents={weddingConfig.groom.parents} 
-            order={weddingConfig.groom.order} 
-            photo={groomImg} 
-          />
+        <main className="h-full w-full overflow-y-auto snap-y snap-mandatory scroll-smooth bg-navy">
+          <section className="snap-start h-[100dvh] w-full">
+            <Hero 
+              brideName={weddingConfig.bride.shortName} 
+              groomName={weddingConfig.groom.shortName} 
+              date={weddingConfig.event.date} 
+            />
+          </section>
+
+          <section className="snap-start h-[100dvh] w-full">
+            <Profile 
+              name={weddingConfig.bride.fullName} 
+              parents={weddingConfig.bride.parents} 
+              order={weddingConfig.bride.order} 
+              photo={brideImg} 
+              isBride 
+            />
+          </section>
+
+          <section className="snap-start h-[100dvh] w-full">
+            <Profile 
+              name={weddingConfig.groom.fullName} 
+              parents={weddingConfig.groom.parents} 
+              order={weddingConfig.groom.order} 
+              photo={groomImg} 
+            />
+          </section>
         </main>
       )}
     </div>

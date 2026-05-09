@@ -4,7 +4,6 @@
 
 @theme {
   --color-navy: #0a1628;
-  --color-navy-mid: #111f3a;
   --color-gold: #c9a84c;
   --color-gold-light: #e8d5a0;
   --color-cream: #f9f5ee;
@@ -15,32 +14,30 @@
 }
 
 @layer base {
-  body {
-    @apply bg-navy text-cream font-lato;
-    margin: 0;
-    padding: 0;
+  html, body {
+    @apply bg-navy text-cream overflow-x-hidden;
+    height: -webkit-fill-available; /* Perbaikan untuk browser mobile */
   }
 }
 
-/* Menggunakan logika exact dari HTML lama Anda */
-.main-scroller {
-  position: fixed;
-  inset: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
-}
-
-.main-scroller::-webkit-scrollbar {
+/* Sembunyikan Scrollbar tapi tetap bisa scroll */
+::-webkit-scrollbar {
   display: none;
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@layer base {
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Mencegah scroll double */
+  }
 }
