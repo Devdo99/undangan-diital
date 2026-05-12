@@ -1,8 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Lato:wght@300;400;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Tambahkan animasi di luar layer base agar tidak bentrok */
+:root {
+  color-scheme: dark;
+  background: #0a1628;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #0a1628;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 76, 0.55) rgba(10, 22, 40, 0.75);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(10, 22, 40, 0.75);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(#e8d5a0, #c9a84c);
+  border-radius: 999px;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(2deg); }
@@ -23,7 +63,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Daftarkan class animasi Anda di sini */
 @layer utilities {
   .animate-float {
     animation: float 5s ease-in-out infinite;
@@ -38,6 +77,6 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 1.5s ease-out forwards;
+    animation: fade-in 1.2s ease-out forwards;
   }
 }

@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ brideName, groomName, date }) => {
 
       <div className="z-10 animate-fade-in">
         <p className="font-cormorant text-gold text-xs tracking-[6px] mb-8 uppercase">Bismillahirrahmanirrahim</p>
-        <h3 className="font-cormorant italic text-gold/60 text-lg tracking-[3px] mb-6 text-xl">The Wedding of</h3>
+        <h3 className="font-cormorant italic text-gold/60 text-lg tracking-[3px] mb-6">The Wedding of</h3>
         <h1 className="font-playfair text-6xl md:text-8xl text-gold-light leading-tight mb-8">
           {brideName} <span className="font-cormorant text-gold italic">&</span> {groomName}
         </h1>

@@ -10,14 +10,13 @@ interface Person {
   shortName: string;
   parents: string;
   order: string;
-  photo: string;
 }
 
 interface EventDetails {
   date: string;
   day: string;
   akadTime: string;
-  resepsiTime: string;
+  receptionTime: string;
   venue: string;
   address: string;
   mapsLink: string;
