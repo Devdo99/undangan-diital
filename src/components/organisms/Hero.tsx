@@ -8,12 +8,12 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ brideName, groomName, date }) => {
   return (
-    <section className="h-[100dvh] snap-start bg-navy flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+    <section className="h-screen snap-start bg-navy flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(201,168,76,0.1),transparent_70%)]"></div>
 
       <div className="z-10 animate-fade-in">
         <p className="font-cormorant text-gold text-xs tracking-[6px] mb-8 uppercase">Bismillahirrahmanirrahim</p>
-        <h3 className="font-cormorant italic text-gold/60 text-xl tracking-[3px] mb-6">The Wedding of</h3>
+        <h3 className="font-cormorant italic text-gold/60 text-lg tracking-[3px] mb-6 text-xl">The Wedding of</h3>
         <h1 className="font-playfair text-6xl md:text-8xl text-gold-light leading-tight mb-8">
           {brideName} <span className="font-cormorant text-gold italic">&</span> {groomName}
         </h1>
