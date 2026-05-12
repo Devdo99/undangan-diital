@@ -3,6 +3,7 @@ export interface WeddingConfig {
   groom: Person;
   event: EventDetails;
   gifts: Gift[];
+  rsvp: RSVPDetails;
 }
 
 interface Person {
@@ -10,7 +11,6 @@ interface Person {
   shortName: string;
   parents: string;
   order: string;
-  photo: string;
 }
 
 interface EventDetails {
@@ -27,4 +27,8 @@ interface Gift {
   bank: string;
   acc: string;
   owner: string;
+}
+
+interface RSVPDetails {
+  phone: string;
 }
