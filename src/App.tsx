@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Hero from './components/organisms/Hero';
 import Profile from './components/organisms/Profile';
 import Gift from './components/organisms/Gift';
+import Event from './components/organisms/Event';
+import RSVP from './components/organisms/RSVP';
 import { weddingConfig } from './data/config';
 import brideImg from './assets/bride.jpg';
 import groomImg from './assets/groom.jpg';
@@ -88,9 +90,17 @@ const App: React.FC = () => {
             />
           </section>
 
+          <section className="snap-start h-[100dvh] w-full relative">
+            <Event />
+          </section>
+
           {/* Bagian Amplop */}
           <section className="snap-start h-[100dvh] w-full relative">
             <Gift />
+          </section>
+
+          <section className="snap-start h-[100dvh] w-full relative">
+            <RSVP brideName={weddingConfig.bride.shortName} phone={weddingConfig.rsvp.phone} />
           </section>
 
         </main>
